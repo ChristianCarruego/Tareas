@@ -72,7 +72,7 @@
 												<span id="tarea-label" class="property-label"><g:message code="empresa.tarea.label" default="Tarea" /></span>
 												
 													<g:each in="${empresaInstance.tarea}" var="t">
-													<span class="property-value" aria-labelledby="tarea-label"><g:link controller="tarea" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+													<span class="property-value" aria-labelledby="tarea-label"><g:link controller="tarea" action="show" id="${t.id}">${t?.resumen}</g:link></span>
 													</g:each>
 												
 											</li>
@@ -83,7 +83,8 @@
 												<span id="usuario-label" class="property-label"><g:message code="empresa.usuario.label" default="Usuario" /></span>
 												
 													<g:each in="${empresaInstance.usuario}" var="u">
-													<span class="property-value" aria-labelledby="usuario-label"><g:link controller="usuario" action="show" id="${u.id}">${u?.encodeAsHTML()}</g:link></span>
+													<br />
+													<span class="property-value" aria-labelledby="usuario-label"><g:link controller="usuario" action="show" id="${u.id}">${u?.username}</g:link></span>
 													</g:each>
 												
 											</li>

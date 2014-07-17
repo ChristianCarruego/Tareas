@@ -99,7 +99,7 @@
 												<li class="fieldcontain">
 													<span id="empresa-label" class="property-label"><g:message code="usuario.empresa.label" default="Empresa" /></span>
 													
-														<span class="property-value" aria-labelledby="empresa-label"><g:link controller="empresa" action="show" id="${usuarioInstance?.empresa?.id}">${usuarioInstance?.empresa?.encodeAsHTML()}</g:link></span>
+														<span class="property-value" aria-labelledby="empresa-label"><g:link controller="empresa" action="show" id="${usuarioInstance?.empresa?.id}">${usuarioInstance?.empresa?.nombreEmpresa}</g:link></span>
 													
 												</li>
 												</g:if>

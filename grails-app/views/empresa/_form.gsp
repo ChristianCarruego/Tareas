@@ -19,7 +19,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${empresaInstance?.tarea?}" var="t">
-    <li><g:link controller="tarea" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="tarea" action="show" id="${t.id}">${t?.resumen}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="tarea" action="create" params="['empresa.id': empresaInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'tarea.label', default: 'Tarea')])}</g:link>
@@ -37,7 +37,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${empresaInstance?.usuario?}" var="u">
-    <li><g:link controller="usuario" action="show" id="${u.id}">${u?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="usuario" action="show" id="${u.id}">${u?.username}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="usuario" action="create" params="['empresa.id': empresaInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'usuario.label', default: 'Usuario')])}</g:link>

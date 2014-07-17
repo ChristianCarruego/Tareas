@@ -84,9 +84,9 @@
 												
 													<td><g:formatDate date="${tareaInstance.fechaInicio}" /></td>
 												
-													<td>${fieldValue(bean: tareaInstance, field: "empresa")}</td>
+													<td>${fieldValue(bean: tareaInstance, field: "empresa.nombreEmpresa")}</td>
 												
-													<td>${fieldValue(bean: tareaInstance, field: "estado")}</td>
+													<td>${fieldValue(bean: tareaInstance, field: "estado.Descripcion")}</td>
 												
 													<td><g:formatDate date="${tareaInstance.fechaFinalizado}" /></td>
 												

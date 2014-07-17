@@ -43,7 +43,7 @@
 		<g:message code="usuario.empresa.label" default="Empresa" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="empresa" name="empresa.id" from="${edu.unlam.Empresa.list()}" optionKey="id" required="" value="${usuarioInstance?.empresa?.id}" class="many-to-one"/>
+	<g:select id="empresa" name="empresa.id" from="${edu.unlam.Empresa.list()}" optionKey="id" optionValue="nombreEmpresa" required="" value="${usuarioInstance?.empresa?.nombreEmpresa}" class="many-to-one"/>
 
 </div>
 

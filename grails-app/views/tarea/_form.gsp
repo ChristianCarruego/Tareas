@@ -34,7 +34,7 @@
 		<g:message code="tarea.empresa.label" default="Empresa" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="empresa" name="empresa.id" from="${edu.unlam.Empresa.list()}" optionKey="id" required="" value="${tareaInstance?.empresa?.id}" class="many-to-one"/>
+	<g:select id="empresa" name="empresa.id" from="${edu.unlam.Empresa.list()}" optionKey="id" optionValue="nombreEmpresa" required="" value="${tareaInstance?.empresa?.id}" class="many-to-one"/>
 
 </div>
 
@@ -43,7 +43,7 @@
 		<g:message code="tarea.estado.label" default="Estado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="estado" name="estado.id" from="${edu.unlam.EstadoTarea.list()}" optionKey="id" required="" value="${tareaInstance?.estado?.id}" class="many-to-one"/>
+	<g:select id="estado" name="estado.id" from="${edu.unlam.EstadoTarea.list()}" optionKey="id" optionValue="Descripcion" required="" value="${tareaInstance?.estado?.id}" class="many-to-one"/>
 
 </div>
 
@@ -70,7 +70,7 @@
 		<g:message code="tarea.tipoTarea.label" default="Tipo Tarea" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="tipoTarea" name="tipoTarea.id" from="${edu.unlam.TipoTarea.list()}" optionKey="id" required="" value="${tareaInstance?.tipoTarea?.id}" class="many-to-one"/>
+	<g:select id="tipoTarea" name="tipoTarea.id" from="${edu.unlam.TipoTarea.list()}" optionKey="id" optionValue="Descripcion" required="" value="${tareaInstance?.tipoTarea?.id}" class="many-to-one"/>
 
 </div>
 
@@ -79,7 +79,7 @@
 		<g:message code="tarea.usuario.label" default="Usuario" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="usuario" name="usuario.id" from="${edu.unlam.Usuario.list()}" optionKey="id" required="" value="${tareaInstance?.usuario?.id}" class="many-to-one"/>
+	<g:select id="usuario" name="usuario.id" from="${edu.unlam.Usuario.list()}" optionKey="id" optionValue="username" required="" value="${tareaInstance?.usuario?.id}" class="many-to-one"/>
 
 </div>
 
