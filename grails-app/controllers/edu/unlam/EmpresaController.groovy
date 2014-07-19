@@ -5,15 +5,22 @@ package edu.unlam
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN','ROLE_EMPRESA'])
 @Transactional(readOnly = true)
 class EmpresaController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	def springSecurityService
+	
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+		/*
+		def usuario=Usuario.findAllById(springSecurityService.principal.id)
+		def userLogueado =usuario.username
+        */
+		params.max = Math.min(max ?: 10, 100)
         respond Empresa.list(params), model:[empresaInstanceCount: Empresa.count()]
+        
     }
 
     def show(Empresa empresaInstance) {

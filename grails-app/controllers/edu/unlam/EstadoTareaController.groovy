@@ -5,7 +5,7 @@ package edu.unlam
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN','ROLE_EMPRESA'])
 @Transactional(readOnly = true)
 class EstadoTareaController {
 

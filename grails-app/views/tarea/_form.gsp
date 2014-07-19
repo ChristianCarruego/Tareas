@@ -1,16 +1,17 @@
 <%@ page import="edu.unlam.Tarea" %>
 
 
-
-<div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'resumen', 'error')} required">
-	<label for="resumen">
-		<g:message code="tarea.resumen.label" default="Resumen" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="resumen" required="" value="${tareaInstance?.resumen}"/>
-
-</div>
-
+<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
+	<div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'resumen', 'error')} required">
+		<label for="resumen">
+			<g:message code="tarea.resumen.label" default="Resumen" />
+			<span class="required-indicator">*</span>
+		</label>
+		<g:textField name="resumen" required="" value="${tareaInstance?.resumen}"/>
+	
+	</div>
+</sec:ifAnyGranted>
+<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'detalle', 'error')} required">
 	<label for="detalle">
 		<g:message code="tarea.detalle.label" default="Detalle" />
@@ -19,16 +20,20 @@
 	<g:textField name="detalle" required="" value="${tareaInstance?.detalle}"/>
 
 </div>
+</sec:ifAnyGranted>
 
-<div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'fechaInicio', 'error')} required">
-	<label for="fechaInicio">
-		<g:message code="tarea.fechaInicio.label" default="Fecha Inicio" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="fechaInicio" precision="day"  value="${tareaInstance?.fechaInicio}"  />
+<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
+	<div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'fechaInicio', 'error')} required">
+		<label for="fechaInicio">
+			<g:message code="tarea.fechaInicio.label" default="Fecha Inicio" />
+			<span class="required-indicator">*</span>
+		</label>
+		<g:datePicker name="fechaInicio" precision="day"  value="${tareaInstance?.fechaInicio}"  />
+	
+	</div>
+</sec:ifAnyGranted>
 
-</div>
-
+<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'empresa', 'error')} required">
 	<label for="empresa">
 		<g:message code="tarea.empresa.label" default="Empresa" />
@@ -37,6 +42,7 @@
 	<g:select id="empresa" name="empresa.id" from="${edu.unlam.Empresa.list()}" optionKey="id" optionValue="nombreEmpresa" required="" value="${tareaInstance?.empresa?.id}" class="many-to-one"/>
 
 </div>
+</sec:ifAnyGranted>
 
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'estado', 'error')} required">
 	<label for="estado">
@@ -74,6 +80,7 @@
 
 </div>
 
+<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'usuario', 'error')} required">
 	<label for="usuario">
 		<g:message code="tarea.usuario.label" default="Usuario" />
@@ -82,4 +89,5 @@
 	<g:select id="usuario" name="usuario.id" from="${edu.unlam.Usuario.list()}" optionKey="id" optionValue="username" required="" value="${tareaInstance?.usuario?.id}" class="many-to-one"/>
 
 </div>
+</sec:ifAnyGranted>
 

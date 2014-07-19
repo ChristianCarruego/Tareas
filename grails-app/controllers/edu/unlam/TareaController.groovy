@@ -5,7 +5,7 @@ package edu.unlam
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN','ROLE_EMPRESA','ROLE_USER'])
 @Transactional(readOnly = true)
 class TareaController {
 
@@ -28,6 +28,7 @@ class TareaController {
         respond tareaInstance
     }
 
+	@Secured(['ROLE_ADMIN','ROLE_EMPRESA'])
     def create() {
         respond new Tarea(params)
     }

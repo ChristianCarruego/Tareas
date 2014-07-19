@@ -55,23 +55,28 @@
 											<g:if test="${flash.message}">
 												<div class="message" role="status">${flash.message}</div>
 											</g:if>
-											<table>
+											<table style="width:100%">
 											<thead>
 													<tr>
 													
 														<th><g:message code="usuarioRol.rol.label" default="Rol" /></th>
 													
 														<th><g:message code="usuarioRol.usuario.label" default="Usuario" /></th>
+														
+														
 													
 													</tr>
 												</thead>
 												<tbody>
 												<g:each in="${usuarioRolInstanceList}" status="i" var="usuarioRolInstance">
 													<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-													
+														<!-- 
 														<td><g:link action="show" id="${usuarioRolInstance.id}">${fieldValue(bean: usuarioRolInstancerun, field: "rol")}</g:link></td>
-													
-														<td>${fieldValue(bean: usuarioRolInstance, field: "usuario")}</td>
+														-->
+														<td>${fieldValue(bean: usuarioRolInstance, field: "rol.authority")}</td>
+														<td>${fieldValue(bean: usuarioRolInstance, field: "usuario.username")}</td>
+														
+														
 													
 													</tr>
 												</g:each>

@@ -56,11 +56,11 @@
                      <ul class="nav navbar-nav pull-right">
                          <li class="dropdown pull-right">            
                              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                             <i class="fa fa-user"></i> Nombre Usuario <b class="caret"></b>              
+                             <i class="fa fa-user"></i> <sec:loggedInUserInfo field="username"/><b class="caret"></b>              
                              </a>
                              <!-- Dropdown menu -->
                              <ul class="dropdown-menu">
-                                 <li><a href="#"><i class="fa fa-sign-out"></i> Desconectarse</a></li>
+                                 <li><g:link controller='logout'><i class="fa fa-sign-out"></i> Desconectarse</g:link></li>
                              </ul>
                          </li>
                      </ul>
@@ -96,7 +96,7 @@
                  <ul id="nav">
                      <!-- Main menu with font awesome icon -->
                      <li>
-                         <a href="#"><i class="fa fa-home"></i> Inicio</a>
+                         <a href="/TareasDrop/"><i class="fa fa-home"></i> Inicio</a>
                      </li>
                      
                      
