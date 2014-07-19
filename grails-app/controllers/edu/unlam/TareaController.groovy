@@ -12,6 +12,7 @@ class TareaController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
 	def TareaService
+	def springSecurityService
 	
 	def index() {
 		def tareas = TareaService.listarTareasDelUsuario()
@@ -30,7 +31,9 @@ class TareaController {
 
 	@Secured(['ROLE_ADMIN','ROLE_EMPRESA'])
     def create() {
-        respond new Tarea(params)
+		def usuarioLogueado = Usuario.findById(springSecurityService.principal.id)
+		//[view_data:usuarioLogueado.empresa.id]
+		respond new Tarea(params)
     }
 
     @Transactional

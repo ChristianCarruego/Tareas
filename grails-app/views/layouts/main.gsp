@@ -1,3 +1,9 @@
+<sec:ifNotLoggedIn>
+<script>
+	top.location="login/index";
+</script>
+</sec:ifNotLoggedIn>
+<sec:ifLoggedIn>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -95,15 +101,46 @@
                  <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
                  <ul id="nav">
                      <!-- Main menu with font awesome icon -->
+                    <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA,ROLE_USER">
                      <li>
                          <a href="/TareasDrop/"><i class="fa fa-home"></i> Inicio</a>
                      </li>
-                     
-                     
+                     </sec:ifAnyGranted>
+                     <sec:ifAnyGranted roles="ROLE_ADMIN">
+                      <li>
+                         <a href="/TareasDrop/Empresa"><i class="fa fa-list"></i> Empresa</a>
+                     </li>
+                     </sec:ifAnyGranted>
+                     <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
+                      <li>
+                         <a href="/TareasDrop/estadoTarea"><i class="fa fa-list"></i> Estado Tarea</a>
+                     </li>
+                     </sec:ifAnyGranted>
+                     <sec:ifAnyGranted roles="ROLE_ADMIN">
+                      <li>
+                         <a href="/TareasDrop/rol"><i class="fa fa-list"></i> Rol</a>
+                     </li>
+                     </sec:ifAnyGranted>
+                     <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA,ROLE_USER">
+                      <li>
+                         <a href="/TareasDrop/tarea"><i class="fa fa-list"></i> Tarea</a>
+                     </li>
+                     </sec:ifAnyGranted>
+                     <sec:ifAnyGranted roles="ROLE_ADMIN">
+                      <li>
+                         <a href="/TareasDrop/tipoTarea"><i class="fa fa-list"></i> Tipo Tarea</a>
+                     </li>
+                     </sec:ifAnyGranted>
+                     <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
+                      <li>
+                         <a href="/TareasDrop/usuario"><i class="fa fa-list"></i> Usuario</a>
+                     </li>
+                     </sec:ifAnyGranted>
+                     <!-- 
                      <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 						<li><g:link controller="${c.logicalPropertyName}"><i class="fa fa-list"></i>${c.name}</g:link></li>
 					 </g:each>
-				     
+				     -->
                  </ul>
              </div>
              <!-- Sidebar ends -->
@@ -136,3 +173,4 @@
         
 	</body>
 </html>
+</sec:ifLoggedIn>

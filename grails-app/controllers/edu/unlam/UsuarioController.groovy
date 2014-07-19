@@ -9,12 +9,14 @@ import grails.plugin.springsecurity.annotation.Secured
 @Transactional(readOnly = true)
 class UsuarioController {
 
+	def TareaService
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Usuario.list(params), model:[usuarioInstanceCount: Usuario.count()]
-    }
+		def usuariosXEmpresa = TareaService.listarUsuariosSegunEmpresa()
+		respond usuariosXEmpresa, model:[usuarioInstanceCount: Usuario.count()]
+	}
 
     def show(Usuario usuarioInstance) {
         respond usuarioInstance

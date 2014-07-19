@@ -44,6 +44,10 @@
 </div>
 </sec:ifAnyGranted>
 
+
+
+
+
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'estado', 'error')} required">
 	<label for="estado">
 		<g:message code="tarea.estado.label" default="Estado" />

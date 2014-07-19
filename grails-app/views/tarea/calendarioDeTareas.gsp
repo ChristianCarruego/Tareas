@@ -35,7 +35,7 @@
 					events: [
 						<g:each in="${tareaInstanceList}" status="i" var="tareaInstance">
 						{
-							title: '${fieldValue(bean: tareaInstance, field: "detalle")}',
+							title: '${fieldValue(bean: tareaInstance, field: "resumen")}',
 							start: '${tareaInstance.fechaInicio}',
 							end: '${tareaInstance.fechaFinalizado}',
 							url: 'edit/${tareaInstance.id}'
