@@ -89,7 +89,7 @@
 											<li class="fieldcontain">
 												<span id="empresa-label" class="property-label"><g:message code="tarea.empresa.label" default="Empresa" /></span>
 												
-													<span class="property-value" aria-labelledby="empresa-label"><g:link controller="empresa" action="show" id="${tareaInstance?.empresa?.id}">${tareaInstance?.empresa?.encodeAsHTML()}</g:link></span>
+													<span class="property-value" aria-labelledby="empresa-label"><g:link controller="empresa" action="show" id="${tareaInstance?.empresa?.id}">${tareaInstance?.empresa?.nombreEmpresa}</g:link></span>
 												
 											</li>
 											</g:if>
@@ -98,7 +98,7 @@
 											<li class="fieldcontain">
 												<span id="estado-label" class="property-label"><g:message code="tarea.estado.label" default="Estado" /></span>
 												
-													<span class="property-value" aria-labelledby="estado-label"><g:link controller="estadoTarea" action="show" id="${tareaInstance?.estado?.id}">${tareaInstance?.estado?.encodeAsHTML()}</g:link></span>
+													<span class="property-value" aria-labelledby="estado-label"><g:link controller="estadoTarea" action="show" id="${tareaInstance?.estado?.id}">${tareaInstance?.estado?.Descripcion}</g:link></span>
 												
 											</li>
 											</g:if>
@@ -125,7 +125,7 @@
 											<li class="fieldcontain">
 												<span id="tipoTarea-label" class="property-label"><g:message code="tarea.tipoTarea.label" default="Tipo Tarea" /></span>
 												
-													<span class="property-value" aria-labelledby="tipoTarea-label"><g:link controller="tipoTarea" action="show" id="${tareaInstance?.tipoTarea?.id}">${tareaInstance?.tipoTarea?.encodeAsHTML()}</g:link></span>
+													<span class="property-value" aria-labelledby="tipoTarea-label"><g:link controller="tipoTarea" action="show" id="${tareaInstance?.tipoTarea?.id}">${tareaInstance?.tipoTarea?.Descripcion}</g:link></span>
 												
 											</li>
 											</g:if>
@@ -134,7 +134,7 @@
 											<li class="fieldcontain">
 												<span id="usuario-label" class="property-label"><g:message code="tarea.usuario.label" default="Usuario" /></span>
 												
-													<span class="property-value" aria-labelledby="usuario-label"><g:link controller="usuario" action="show" id="${tareaInstance?.usuario?.id}">${tareaInstance?.usuario?.encodeAsHTML()}</g:link></span>
+													<span class="property-value" aria-labelledby="usuario-label"><g:link controller="usuario" action="show" id="${tareaInstance?.usuario?.id}">${tareaInstance?.usuario?.username}</g:link></span>
 												
 											</li>
 											</g:if>

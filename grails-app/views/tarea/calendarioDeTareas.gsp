@@ -35,13 +35,20 @@
 					events: [
 						<g:each in="${tareaInstanceList}" status="i" var="tareaInstance">
 						{
-							title: '<a href="/tarea/show/${tareaInstance.id}">${fieldValue(bean: tareaInstance, field: "detalle")}</a>',
+							title: '${fieldValue(bean: tareaInstance, field: "detalle")}',
 							start: '${tareaInstance.fechaInicio}',
-							end: '${tareaInstance.fechaFinalizado}'
+							end: '${tareaInstance.fechaFinalizado}',
+							url: 'edit/${tareaInstance.id}'
 							
 						},
 						</g:each>
-					]
+					],
+					eventClick: function(event) {
+				        if (event.url) {
+				            window.open(event.url);
+				            return false;
+				        }
+				    }
 				});
 			});
 		
