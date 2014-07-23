@@ -34,13 +34,15 @@
 					editable: true,
 					events: [
 						<g:each in="${tareaInstanceList}" status="i" var="tareaInstance">
-						{
-							title: '${fieldValue(bean: tareaInstance, field: "resumen")}',
+						<g:if test ="${tareaInstance.estado.Descripcion!='Finalizada'}">
+						{ 
+							title: '${fieldValue(bean: tareaInstance, field: "usuario.username")}:  ${fieldValue(bean: tareaInstance, field: "resumen")} -- Tarea Nº${fieldValue(bean: tareaInstance, field: "id")} ',
 							start: '${tareaInstance.fechaInicio}',
 							end: '${tareaInstance.fechaFinalizado}',
 							url: 'edit/${tareaInstance.id}'
 							
 						},
+						</g:if>
 						</g:each>
 					],
 					eventClick: function(event) {

@@ -11,7 +11,15 @@ class TareaService {
 	
 	def listarTareasDelUsuario(){
 		def usuarioLogueado = Usuario.findAllById(springSecurityService.principal.id)
-		def listaDeTareasDelUsuario = Tarea.findAllByUsuario(usuarioLogueado)
+		if (SpringSecurityUtils.ifAllGranted('ROLE_ADMIN')){
+			def listaDeTareasDelUsuario = Tarea.list()
+		}else if(SpringSecurityUtils.ifAllGranted('ROLE_EMPRESA')){
+			def listaDeTareasDelUsuario = Tarea.findAllByEmpresa(usuarioLogueado.empresa)
+		}
+		else{
+			def listaDeTareasDelUsuario = Tarea.findAllByUsuario(usuarioLogueado)
+		}
+		
 	}
 	
 	def listarUsuariosSegunEmpresa(){

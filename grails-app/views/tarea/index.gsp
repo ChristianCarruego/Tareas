@@ -47,7 +47,9 @@
 									<div class="nav" role="navigation">
 										<ul>
 											<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-											<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+											<sec:ifAnyGranted roles="ROLE_EMPRESA, ROLE_ADMIN">
+												<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+											</sec:ifAnyGranted>
 											<li><g:link class="calendarioDeTareas" action="calendarioDeTareas">Calendario de Tareas del usuario</g:link></li>
 										</ul>
 									</div>
@@ -60,12 +62,16 @@
 										<thead>
 												<tr>
 												
+													<g:sortableColumn property="id" title="${message(code: 'tarea.id.label', default: 'Id')}" />
+													
 													<g:sortableColumn property="resumen" title="${message(code: 'tarea.resumen.label', default: 'Resumen')}" />
 												
 													<g:sortableColumn property="detalle" title="${message(code: 'tarea.detalle.label', default: 'Detalle')}" />
 												
 													<g:sortableColumn property="fechaInicio" title="${message(code: 'tarea.fechaInicio.label', default: 'Fecha Inicio')}" />
 												
+													<th><g:message code="tarea.usuario.label" default="Usuario" /></th>
+													
 													<th><g:message code="tarea.empresa.label" default="Empresa" /></th>
 												
 													<th><g:message code="tarea.estado.label" default="Estado" /></th>
@@ -76,13 +82,18 @@
 											</thead>
 											<tbody>
 											<g:each in="${tareaInstanceList}" status="i" var="tareaInstance">
+												<g:if test ="${tareaInstance.estado.Descripcion!='Finalizada'}">
 												<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-												
+													
+													<td><g:link action="show" id="${tareaInstance.id}">${fieldValue(bean: tareaInstance, field: "id")}</g:link></td>
+																								    
 													<td><g:link action="show" id="${tareaInstance.id}">${fieldValue(bean: tareaInstance, field: "resumen")}</g:link></td>
 												
 													<td>${fieldValue(bean: tareaInstance, field: "detalle")}</td>
 												
 													<td><g:formatDate date="${tareaInstance.fechaInicio}" /></td>
+													
+													<td>${fieldValue(bean: tareaInstance, field: "usuario.username")}</td>
 												
 													<td>${fieldValue(bean: tareaInstance, field: "empresa.nombreEmpresa")}</td>
 												
@@ -91,6 +102,7 @@
 													<td><g:formatDate date="${tareaInstance.fechaFinalizado}" /></td>
 												
 												</tr>
+												</g:if>
 											</g:each>
 											</tbody>
 										</table>

@@ -12,13 +12,13 @@
         <div class="mainbar">
             <!-- Page heading -->
             <div class="page-head">
-              	<h2 class="pull-left"><i class="fa fa-list"></i> Rol</h2>
+              	<h2 class="pull-left"><i class="fa fa-list"></i> Tareas</h2>
                <!-- Breadcrumb -->
                <div class="bread-crumb pull-right">
                      <i class="fa fa-list"></i> Home
                      <!-- Divider -->
                      <span class="divider">/</span> 
-                     <a href="#" class="bread-current">Rol</a>
+                     <a href="#" class="bread-current">Tareas</a>
                </div>
                <div class="clearfix"></div>
             </div>
@@ -31,7 +31,7 @@
                             <div class="widget">
                                 <div class="widget-head">
                                     <div class="pull-left">
-                                        Rol
+                                        Tareas
                                     </div>
                                     <div class="widget-icons pull-right">
                                         <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
@@ -56,7 +56,7 @@
 										<g:if test="${flash.message}">
 										<div class="message" role="status">${flash.message}</div>
 										</g:if>
-										<ol class="property-list tarea">
+										<ul class="property-list tarea">
 										
 											<g:if test="${tareaInstance?.resumen}">
 											<li class="fieldcontain">
@@ -139,7 +139,7 @@
 											</li>
 											</g:if>
 										
-										</ol>
+										</ul>
 										<g:form url="[resource:tareaInstance, action:'delete']" method="DELETE">
 											<fieldset class="buttons">
 												<g:link class="edit" action="edit" resource="${tareaInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

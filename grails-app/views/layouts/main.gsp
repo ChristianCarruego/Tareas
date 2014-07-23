@@ -38,6 +38,9 @@
 		<![endif]-->
 		<!-- Favicon -->
 		<link rel="shortcut icon" href='${resource(dir: 'macAdmin/img/favicon', file: 'favicon.png')}'>
+		<style>
+			label{width:130px}
+  		</style>
 		
 		<g:layoutHead/>
 		

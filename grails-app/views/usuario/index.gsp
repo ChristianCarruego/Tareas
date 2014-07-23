@@ -57,7 +57,7 @@
 											</g:if>
 											<table>
 											<thead>
-													<tr>
+													<tr style="width: 125px;">
 													
 														<g:sortableColumn property="username" title="${message(code: 'usuario.username.label', default: 'Username')}" />
 													<!-- 
@@ -75,9 +75,9 @@
 												</thead>
 												<tbody>
 												<g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
-													<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+													<tr class="${(i % 2) == 0 ? 'even' : 'odd'}" >
 													
-														<td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "username")}</g:link></td>
+														<td style="width: 125px;"><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "username")}</g:link></td>
 													<!-- 
 														<td>${fieldValue(bean: usuarioInstance, field: "password")}</td>
 													
@@ -85,7 +85,7 @@
 													
 														<td><g:formatBoolean boolean="${usuarioInstance.accountLocked}" /></td>
 													-->
-														<td>${fieldValue(bean: usuarioInstance, field: "empresa.nombreEmpresa")}</td>
+														<td style="width: 125px;">${fieldValue(bean: usuarioInstance, field: "empresa.nombreEmpresa")}</td>
 													<!-- 
 														<td><g:formatBoolean boolean="${usuarioInstance.enabled}" /></td>
 													-->

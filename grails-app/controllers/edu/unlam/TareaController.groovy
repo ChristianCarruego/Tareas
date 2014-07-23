@@ -33,8 +33,11 @@ class TareaController {
     def create() {
 		def usuarioLogueado = Usuario.findById(springSecurityService.principal.id)
 		//[view_data:usuarioLogueado.empresa.id]
-		respond new Tarea(params)
-    }
+		//respond new Tarea(params)
+    	
+		//respond bindData(new Tarea,params,[exclude])
+		respond new Tarea(params), model:[usuario:usuarioLogueado]
+	}
 
     @Transactional
     def save(Tarea tareaInstance) {

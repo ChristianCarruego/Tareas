@@ -3,7 +3,7 @@
 
 
 <div class="fieldcontain ${hasErrors(bean: estadoTareaInstance, field: 'descripcion', 'error')} ">
-	<label for="descripcion">
+	<label for="descripcion" >
 		<g:message code="estadoTarea.descripcion.label" default="Descripcion" />
 		
 	</label>

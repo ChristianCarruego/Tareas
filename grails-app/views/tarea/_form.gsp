@@ -1,6 +1,11 @@
 <%@ page import="edu.unlam.Tarea" %>
 
 
+	<label>Numero Tarea: </label>
+	${tareaInstance?.id}
+	<br>
+
+
 <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
 	<div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'resumen', 'error')} required">
 		<label for="resumen">
@@ -11,6 +16,24 @@
 	
 	</div>
 </sec:ifAnyGranted>
+
+
+
+<sec:ifAnyGranted roles="ROLE_USER">
+	<label>Resumen: </label>
+	${tareaInstance?.resumen}
+	<br>
+</sec:ifAnyGranted>
+
+<sec:ifAnyGranted roles="ROLE_USER">
+	<label>Detalle: </label>
+	${tareaInstance?.detalle}
+	<br>
+
+</sec:ifAnyGranted>
+
+
+
 <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'detalle', 'error')} required">
 	<label for="detalle">
@@ -33,7 +56,7 @@
 	</div>
 </sec:ifAnyGranted>
 
-<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
+<sec:ifAnyGranted roles="ROLE_ADMIN">
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'empresa', 'error')} required">
 	<label for="empresa">
 		<g:message code="tarea.empresa.label" default="Empresa" />
@@ -42,8 +65,15 @@
 	<g:select id="empresa" name="empresa.id" from="${edu.unlam.Empresa.list()}" optionKey="id" optionValue="nombreEmpresa" required="" value="${tareaInstance?.empresa?.id}" class="many-to-one"/>
 
 </div>
-</sec:ifAnyGranted>
 
+</sec:ifAnyGranted>
+	<sec:ifAnyGranted roles="ROLE_EMPRESA">
+	<label>Empresa: </label>
+	${usuario.empresa.nombreEmpresa}
+	<br>
+	
+	<g:hiddenField name="empresa.id" id="empresa" value="${usuario.empresa.id}" />
+</sec:ifAnyGranted>
 
 
 
@@ -84,14 +114,35 @@
 
 </div>
 
-<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">
+<sec:ifAnyGranted roles="ROLE_ADMIN">
 <div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'usuario', 'error')} required">
 	<label for="usuario">
 		<g:message code="tarea.usuario.label" default="Usuario" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="usuario" name="usuario.id" from="${edu.unlam.Usuario.list()}" optionKey="id" optionValue="username" required="" value="${tareaInstance?.usuario?.id}" class="many-to-one"/>
-
+	
 </div>
 </sec:ifAnyGranted>
+
+<sec:ifAnyGranted roles="ROLE_EMPRESA">
+<div class="fieldcontain ${hasErrors(bean: tareaInstance, field: 'usuario', 'error')} required">
+	<label for="usuario">
+		<g:message code="tarea.usuario.label" default="Usuario" />
+		<span class="required-indicator">*</span>
+	</label>
+	<!-- 
+	<g:select id="usuario" name="usuario.id" from="${edu.unlam.Usuario.list()}" optionKey="id" optionValue="username" required="" value="${tareaInstance?.usuario?.id}" class="many-to-one"/>
+	-->
+	<select id="usuario" name="usuario.id">
+	<g:each in="${edu.unlam.Usuario.list()}" var="c">
+		<g:if test ="${c.empresaId==usuario.empresa.id}">
+		
+			<option value="${c.id}">${c.username}</option>
+		</g:if>
+	</g:each>
+	</select>
+</div>
+</sec:ifAnyGranted>
+
 
