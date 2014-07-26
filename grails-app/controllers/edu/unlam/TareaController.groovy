@@ -63,7 +63,14 @@ class TareaController {
     }
 
     def edit(Tarea tareaInstance) {
-        respond tareaInstance
+        //respond tareaInstance
+		
+		def usuarioLogueado = Usuario.findById(springSecurityService.principal.id)
+		//[view_data:usuarioLogueado.empresa.id]
+		//respond new Tarea(params)
+		
+		//respond bindData(new Tarea,params,[exclude])
+		respond tareaInstance, model:[usuario:usuarioLogueado]
     }
 
     @Transactional

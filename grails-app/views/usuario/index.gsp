@@ -67,8 +67,9 @@
 													
 														<g:sortableColumn property="accountLocked" title="${message(code: 'usuario.accountLocked.label', default: 'Account Locked')}" />
 													-->
-														<th><g:message code="usuario.empresa.label" default="Empresa" /></th>
+														<g:sortableColumn property="empresa" title="${message(code: 'usuario.empresa.label', default: 'Empresa')}" />
 													<!--  
+														<th><g:message code="usuario.empresa.label" default="Empresa" /></th>
 														<g:sortableColumn property="enabled" title="${message(code: 'usuario.enabled.label', default: 'Enabled')}" />
 													-->
 													</tr>

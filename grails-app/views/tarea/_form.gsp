@@ -1,9 +1,10 @@
 <%@ page import="edu.unlam.Tarea" %>
 
-
+	<g:if test ="${tareaInstance?.id!=null}">
 	<label>Numero Tarea: </label>
 	${tareaInstance?.id}
 	<br>
+	</g:if>
 
 
 <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EMPRESA">

@@ -37,7 +37,7 @@
 		<script src='${resource(dir: 'macAdmin/js', file: 'html5shiv.js')}'></script>
 		<![endif]-->
 		<!-- Favicon -->
-		<link rel="shortcut icon" href='${resource(dir: 'macAdmin/img/favicon', file: 'favicon.png')}'>
+		<link rel="shortcut icon" href='${resource(dir: 'images', file: 'favicon.ico')}'>
 		<style>
 			label{width:130px}
   		</style>
@@ -53,6 +53,7 @@
            <div class="conjtainer">
                  <!-- Menu button for smallar screens -->
                  <div class="navbar-header">
+                 	 <span class="contenedorsmallimage"><img class="smallimage" src="${resource(dir: 'images', file: 'logo.png')}" style="height:60px;margin-top:12px;margin-left:12px;"/></span>
                      <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
                      	<span>Menu</span>
                      </button>
@@ -83,8 +84,10 @@
                      <div class="col-md-4">
                          <!-- Logo. -->
                          <div class="logo">
-                             <h1><a href="#"><span class="bold">Tareas</span></a></h1>
+                             <h1><a href="#"><img src="${resource(dir: 'images', file: 'logo.png')}" /> <span class="bold">Tareas Drop</span></a></h1>
+                             <!-- 
                              <p class="meta">TUS TAREAS</p>
+                              -->
                          </div>
                          <!-- Logo ends -->
                      </div>

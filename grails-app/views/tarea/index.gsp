@@ -47,7 +47,7 @@
 									<div class="nav" role="navigation">
 										<ul>
 											<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-											<sec:ifAnyGranted roles="ROLE_EMPRESA, ROLE_ADMIN">
+											<sec:ifAnyGranted roles="ROLE_EMPRESA">
 												<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 											</sec:ifAnyGranted>
 											<li><g:link class="calendarioDeTareas" action="calendarioDeTareas">Calendario de Tareas del usuario</g:link></li>
@@ -70,12 +70,20 @@
 												
 													<g:sortableColumn property="fechaInicio" title="${message(code: 'tarea.fechaInicio.label', default: 'Fecha Inicio')}" />
 												
+													<g:sortableColumn property="usuario" title="${message(code: 'tarea.usuario.label', default: 'Usuario')}" />
+												
+													<g:sortableColumn property="empresa" title="${message(code: 'tarea.empresa.label', default: 'Empresa')}" />
+												
+													<g:sortableColumn property="estado" title="${message(code: 'tarea.estado.label', default: 'Estado')}" />
+												
+													<!--
 													<th><g:message code="tarea.usuario.label" default="Usuario" /></th>
 													
 													<th><g:message code="tarea.empresa.label" default="Empresa" /></th>
 												
 													<th><g:message code="tarea.estado.label" default="Estado" /></th>
 												
+													-->
 													<g:sortableColumn property="fechaFinalizado" title="${message(code: 'tarea.fechaFinalizado.label', default: 'Fecha Finalizado')}" />
 												
 												</tr>
